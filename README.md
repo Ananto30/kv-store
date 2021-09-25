@@ -13,7 +13,7 @@ necessary.
     
 <img src="https://res.cloudinary.com/dvqpo7nkm/image/upload/v1632554472/projects/ezgif.com-gif-maker.gif">
 
-## Run just NOW 😱
+## Run just now 🚀
 
 <strong>Fix the `.env` file.</strong>
 
