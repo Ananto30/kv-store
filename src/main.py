@@ -70,7 +70,11 @@ def delete_service_kv(service_name, key):
     return redirect(f"/service/{service_name}")
 
 
-@app.route("/service/<service_name>/generate_code/python", methods=["GET"])
-def generate_python_code_for_service(service_name):
-    code = codegen.generate_python_code(service_name)
-    return render_template("python.j2", code=code, service_name=service_name)
+@app.route("/service/<service_name>/generate_code/<language>", methods=["GET"])
+def generate_python_code_for_service(service_name, language):
+    if language == "java":
+        code = codegen.generate_java_code(service_name)
+    else:
+        language = "python"
+        code = codegen.generate_python_code(service_name)
+    return render_template("code.j2", code=code, service_name=service_name, language=language.title())

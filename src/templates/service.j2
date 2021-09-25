@@ -1,17 +1,26 @@
 {% extends "base.j2" %} {% block body %}
 
-<h2><i>{{service_name}}</i> Service</h2>
+<h2>
+  <i>{{ service_name }}</i> Service
+</h2>
 <hr />
 <div class="item">
   <h3>Key Values</h3>
   {% if kvs.items()|length == 0 %}
   <p>There's no key value, add a new one 👇</p>
   {% else %}
-  <a
-    href="/service/{{service_name}}/generate_code/python"
-    class="ui tiny button"
-    >Generate Python code</a
-  >
+  <p>
+    <strong>🛠️ Generate Code => </strong>
+    <a
+      href="/service/{{ service_name }}/generate_code/python"
+      class="ui mini button"
+      >Python</a
+    ><a
+      href="/service/{{ service_name }}/generate_code/java"
+      class="ui mini button"
+      >Java</a
+    >
+  </p>
   <table class="ui fixed selectable celled table">
     <thead>
       <tr>
@@ -27,7 +36,7 @@
         <td>{{ value }}</td>
         <td class="center aligned">
           <form
-            action="/service/{{service_name}}/kv/{{key}}/delete"
+            action="/service/{{ service_name }}/kv/{{ key }}/delete"
             method="post"
           >
             <button class="ui mini button" type="submit" value="delete">
@@ -45,7 +54,7 @@
 <hr />
 <div class="item">
   <h3><u>Add or Update Key Value</u></h3>
-  <form class="ui form" action="/service/{{service_name}}/kv" method="post">
+  <form class="ui form" action="/service/{{ service_name }}/kv" method="post">
     <div class="field">
       <label>Key</label>
       <input type="text" name="key" placeholder="Key" />
