@@ -24,7 +24,7 @@ def index():
     for service in services:
         service_map[service] = kv_store.count_service_keys(service)
     error = request.args["error"] if "error" in request.args else None
-    return render_template("index.html", service_map=service_map, error=error)
+    return render_template("index.j2", service_map=service_map, error=error)
 
 
 @app.route("/service", methods=["POST"])
@@ -39,7 +39,7 @@ def add_service():
 @app.route("/service/<service_name>", methods=["GET"])
 def get_service(service_name):
     kvs = kv_store.get_service_kvs(service_name)
-    return render_template("service.html", kvs=kvs, service_name=service_name)
+    return render_template("service.j2", kvs=kvs, service_name=service_name)
 
 
 @app.route("/service/<service_name>/delete", methods=["POST"])
@@ -73,4 +73,4 @@ def delete_service_kv(service_name, key):
 @app.route("/service/<service_name>/generate_code/python", methods=["GET"])
 def generate_python_code_for_service(service_name):
     code = codegen.generate_python_code(service_name)
-    return render_template("python.html", code=code, service_name=service_name)
+    return render_template("python.j2", code=code, service_name=service_name)

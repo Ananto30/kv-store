@@ -1,12 +1,12 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.j2" %} {% block body %}
 
 <blockquote>
   <p>
     The purpose of <strong>KV Store</strong> is to provide a simple way to store
     the <strong>settings or configs</strong> of your microservice applications.
     As an example, you may have a settings that is frequently changed for
-    business requirements, say <code>session_timeout</code> which can be 5 or 500
-    minutes. You can save it to <strong>KV Store</strong> and change it as
+    business requirements, say <code>session_timeout</code> which can be 5 or
+    500 minutes. You can save it to <strong>KV Store</strong> and change it as
     necessary.
   </p>
   <h5>
@@ -19,7 +19,7 @@
 {% if error %}
 <div class="ui warning message">
   <i class="close icon"></i>
-  <div class="header">{{error}}</div>
+  <div class="header">{{ error }}</div>
 </div>
 {% endif %}
 
@@ -32,7 +32,7 @@
     {% for service, key_count in service_map.items() %}
     <div class="item">
       <div class="right floated content">
-        <form action="/service/{{service}}/delete" method="post">
+        <form action="/service/{{ service }}/delete" method="post">
           <button class="ui mini button" type="submit" value="delete">
             Delete
           </button>
@@ -40,8 +40,8 @@
       </div>
       <i class="large middle aligned icon">⚙️</i>
       <div class="content">
-        <a class="header" href="/service/{{service}}">{{service}}</a>
-        <div class="description">{{key_count}} key(s)</div>
+        <a class="header" href="/service/{{ service }}">{{ service }}</a>
+        <div class="description">{{ key_count }} key(s)</div>
       </div>
     </div>
     {% endfor %}
