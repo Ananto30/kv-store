@@ -23,7 +23,6 @@ def index():
     service_map = dict()
     for service in services:
         service_map[service] = kv_store.count_service_keys(service)
-    print(service_map)
     error = request.args["error"] if "error" in request.args else None
     return render_template("index.html", service_map=service_map, error=error)
 

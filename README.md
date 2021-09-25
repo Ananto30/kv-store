@@ -9,6 +9,8 @@ business requirements, say <code>session_timeout</code> which can be 5 or 500
 minutes. You can save it to <strong>KV Store</strong> and change it as
 necessary.
 
+<img src="https://res.cloudinary.com/dvqpo7nkm/image/upload/v1632554472/projects/ezgif.com-gif-maker.gif">
+
 ## Run just NOW 😱
 
 <strong>Fix the `.env` file.</strong>
