@@ -11,7 +11,7 @@ necessary.
 
 KV Store also <strong>generates client code</strong> for you!<i>(Supports <strong>Python & Java</strong> for now)</i>
 
-<img src="https://res.cloudinary.com/dvqpo7nkm/image/upload/v1632554472/projects/ezgif.com-gif-maker.gif">
+<img src="https://res.cloudinary.com/dvqpo7nkm/image/upload/v1632573669/projects/kvstore_gif.gif">
 
 ## Run just now 🚀
 
