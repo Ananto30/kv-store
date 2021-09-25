@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🗄️ KV Store</title>
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style type="text/css">
+    body {
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+    .container {
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 15px;
+    }
+    h1 {
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    h2 {
+      text-align: center;
+      margin: 0px;
+    }
+    .item {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .navbar {
+      text-align: center;
+    }
+    .navbar ul {
+      padding-inline-start: 0px;
+    }
+    .navbar ul li {
+      display: inline;
+      font-size: 16px;
+    }
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 0;
+      border-top: 1px solid #eee;
+
+      width: 90%;
+    }
+    h3,
+    h4,
+    h6 {
+      /* text-align: center; */
+      text-decoration: underline;
+    }
+    .delete {
+      color: rgb(245, 97, 97);
+      font-size: 12px;
+      border: none;
+      background-color: transparent;
+      padding: 0px;
+      cursor: pointer;
+    }
+    .delete:hover {
+      color: rgb(97, 112, 245);
+    }
+    pre {
+      background-color: #f5f5f5;
+      border-radius: 3px;
+      padding: 5px 10px;
+      overflow-y: auto;
+    }
+    table {
+      word-wrap: break-word;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>KV Store 🗄️</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">🏠 Home</a></li>
+        </ul>
+      </nav>
+      <hr />
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>

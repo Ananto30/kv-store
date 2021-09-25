@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block body %}
+
+<blockquote>
+  <p>
+    The purpose of <strong>KV Store</strong> is to provide a simple way to store
+    the <strong>settings or configs</strong> of your microservice applications.
+    As an example, you may have a settings that is frequently changed for
+    business requirements, say <code>session_timeout</code> which can be 5 or 500
+    minutes. You can save it to <strong>KV Store</strong> and change it as
+    necessary.
+  </p>
+  <h5>
+    <strong>KV Store</strong> also generates client code for you!
+    <i>(Only supports Python for now)</i>
+  </h5>
+</blockquote>
+<hr />
+
+{% if error %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">{{error}}</div>
+</div>
+{% endif %}
+
+<div class="item">
+  <h3>Services</h3>
+  {% if service_map.items()|length == 0 %}
+  <p>There's no service, add a new one 👇</p>
+  {% else %}
+  <div class="ui relaxed divided list">
+    {% for service, key_count in service_map.items() %}
+    <div class="item">
+      <div class="right floated content">
+        <form action="/service/{{service}}/delete" method="post">
+          <button class="ui mini button" type="submit" value="delete">
+            Delete
+          </button>
+        </form>
+      </div>
+      <i class="large middle aligned icon">⚙️</i>
+      <div class="content">
+        <a class="header" href="/service/{{service}}">{{service}}</a>
+        <div class="description">{{key_count}} key(s)</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+<hr />
+<div class="item">
+  <h3><u>Add new service</u></h3>
+  <form class="ui form" action="/service" method="post">
+    <div class="field">
+      <label>Service Name</label>
+      <input type="text" name="service_name" placeholder="Service Name" />
+    </div>
+    <button class="ui button" type="submit">Add</button>
+  </form>
+</div>
+
+{% endblock %}

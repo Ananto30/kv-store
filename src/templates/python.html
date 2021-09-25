@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block body %}
+
+<h2><i>{{service_name}}</i> Service</h2>
+<hr />
+<a href="/service/{{service_name}}" class="ui left labeled icon tiny button">
+  <i class="left arrow icon"></i>
+  Back
+</a>
+<div class="item">
+  <h3>Python code for {{service_name}}</h3>
+
+  <pre class="brush: python" lang="python">
+    <code> {{code}}</code>
+  </pre>
+</div>
+
+{% endblock %}
