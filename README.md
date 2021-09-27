@@ -9,7 +9,9 @@
 <h4 align="center">
     Config or Settings key-val store in Redis with GUI.
     <br>
-    Manages your frequently changed env vars without any deployment. Generates Python & Java code too!
+    Manages your frequently changed env vars without any deployment.
+    <br>
+    Generates Python & Java code too!
 </h4>
 
 <br>
