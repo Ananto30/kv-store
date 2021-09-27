@@ -14,6 +14,9 @@ class KVStore:
     def add_service(self, service_name: str):
         self.redis.sadd(self.services_key, service_name)
 
+    def delete_service(self, service_name: str):
+        self.redis.srem("kv_services", service_name)
+
     def get_service_kvs(self, service_name: str) -> Dict[str, str]:
         service_key = self.prefix + service_name + "__"
         keys = self.redis.scan_iter(f"{service_key}*")

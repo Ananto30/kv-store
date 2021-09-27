@@ -1,0 +1,63 @@
+body {
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+.container {
+  max-width: 750px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 45px;
+}
+h1 {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.navbar {
+  text-align: center;
+}
+.navbar ul {
+  padding-inline-start: 0px;
+}
+.navbar ul li {
+  display: inline;
+  font-size: 16px;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+
+  width: 90%;
+}
+
+.delete {
+  color: rgb(245, 97, 97);
+  font-size: 12px;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  cursor: pointer;
+}
+.delete:hover {
+  color: rgb(97, 112, 245);
+}
+pre {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 5px 10px;
+  overflow-y: auto;
+}
+table {
+  word-wrap: break-word;
+}
