@@ -4,14 +4,18 @@ init:
 		source venv/bin/activate && ( \
 		pip install -r requirements.txt; \
 		)
+
 dev:
-		docker-compose up -d
 		source venv/bin/activate && ( \
 		export FLASK_APP=src.main; \
 		export FLASK_ENV=development; \
-		flask run; \
+		flask run & \
+		cd web-app; \
+		npm run dev; \
 		)
+	
 docker-build:
 		docker build -t ananto30/kv-store .
+
 docker-run:
-		docker run -d -p 8080:8080 --env-file .env ananto30/kv-store
+		docker run -d -p 8080:8080 ananto30/kv-store
