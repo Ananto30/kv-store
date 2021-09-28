@@ -5,16 +5,16 @@
   export let section;
 
   export let key;
-  export let val;
+  export let value;
 
   function addKeyValue() {
-    if (key.length > 0 && val.length > 0) {
-      fetch("http://localhost:5000/api/services/" + $service + "/kv", {
+    if (key.length > 0 && value.length > 0) {
+      fetch("/api/services/" + $service + "/kv", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ key, val }),
+        body: JSON.stringify({ key, value }),
       })
         .then((res) => res.json())
         .then((res) => {
@@ -28,12 +28,12 @@
   <h3><u>Update Key Value</u></h3>
   <div class="ui form">
     <div class="disabled field">
-      <label>Key</label>
+      <label for="">Key</label>
       <input type="text" bind:value={key} placeholder="Key" />
     </div>
     <div class="field">
-      <label>Value</label>
-      <input type="text" bind:value={val} placeholder="Value" />
+      <label for="">Value</label>
+      <input type="text" bind:value placeholder="Value" />
     </div>
     <button class="ui button" on:click={addKeyValue}>Update</button>
   </div>

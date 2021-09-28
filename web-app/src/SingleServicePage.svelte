@@ -22,17 +22,17 @@
   </h2>
 
   <div class="ui pointing menu">
-    <a
-      class={section == "keyValue" ? "active item" : "item"}
+    <button
+      class={section == "keyValue" ? "active item link" : "item link"}
       on:click={() => (section = "keyValue")}
     >
       🗃️ Key Values
-    </a>
-    <a
-      class={section == "codeGen" ? "active item" : "item"}
+    </button>
+    <button
+      class={section == "codeGen" ? "active item link" : "item link"}
       on:click={() => (section = "codeGen")}
       >🛠️ Generate Code
-    </a>
+    </button>
   </div>
 
   {#if section === "keyValue"}
@@ -45,7 +45,7 @@
     <UpdateKeyValueSection
       bind:section
       bind:key={updateKey}
-      bind:val={updateValue}
+      bind:value={updateValue}
     />
   {/if}
 </div>

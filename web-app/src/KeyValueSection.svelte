@@ -11,21 +11,22 @@
 
   const fetchServiceKeyVals = () => {
     fetching = true;
-    fetch("http://localhost:5000/api/services/" + $service)
+    fetch("/api/services/" + $service)
       .then((data) => data.json())
       .then((data) => {
-        console.log(data.key_values);
         keyVals = data.key_values;
         fetching = false;
       });
   };
 
   function deleteKeyVal(key) {
-    fetch("http://localhost:5000/api/services/" + $service + "/kv/" + key, {
-      method: "DELETE",
-    }).then(() => {
-      fetchServiceKeyVals();
-    });
+    if (confirm(`Are you sure you want to delete this key: ${key}?`)) {
+      fetch("/api/services/" + $service + "/kv/" + key, {
+        method: "DELETE",
+      }).then(() => {
+        fetchServiceKeyVals();
+      });
+    }
   }
 
   function updateKeyValSection(key, value) {
@@ -45,35 +46,25 @@
       <tr>
         <th>🗝️ Key</th>
         <th>🔐 Value</th>
-        <th class="three wide" />
+        <th class="three wide">Delete / Update</th>
       </tr>
     </thead>
     <tbody>
-      {#if fetching}
-        <div class="ui placeholder">
-          <div class="line" />
-          <div class="line" />
-          <div class="line" />
-          <div class="line" />
-          <div class="line" />
-        </div>
-      {:else}
-        {#each Object.entries(keyVals) as [key, val]}
-          <tr>
-            <td>{key}</td>
-            <td>{val}</td>
-            <td class="">
-              <button class="ui mini button" on:click={() => deleteKeyVal(key)}
-                >❌</button
-              >
-              <button
-                class="ui mini button"
-                on:click={() => updateKeyValSection(key, val)}>🔧</button
-              >
-            </td>
-          </tr>
-        {/each}
-      {/if}
+      {#each Object.entries(keyVals) as [key, value]}
+        <tr>
+          <td>{key}</td>
+          <td>{value}</td>
+          <td class="">
+            <button class="ui mini button" on:click={() => deleteKeyVal(key)}
+              >❌</button
+            >
+            <button
+              class="ui mini button"
+              on:click={() => updateKeyValSection(key, value)}>🔧</button
+            >
+          </td>
+        </tr>
+      {/each}
     </tbody>
     <tfoot class="full-width">
       <tr>

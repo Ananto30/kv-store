@@ -12,6 +12,6 @@ dev:
 		flask run; \
 		)
 docker-build:
-		docker build -t ananto/kv-store .
+		docker build -t ananto30/kv-store .
 docker-run:
-		docker run -d -p 8080:8080 --env-file .env ananto/kv-store
+		docker run -d -p 8080:8080 --env-file .env ananto30/kv-store

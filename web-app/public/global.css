@@ -61,3 +61,12 @@ pre {
 table {
   word-wrap: break-word;
 }
+
+.link {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}

@@ -5,7 +5,7 @@
   let serviceName = "";
 
   function add_service() {
-    fetch("http://localhost:5000/api/services", {
+    fetch("/api/services", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@
   <h3><u>Add new service</u></h3>
   <div class="ui form">
     <div class="field">
-      <label>Service Name</label>
+      <label for="">Service Name</label>
       <input type="text" bind:value={serviceName} placeholder="Service Name" />
     </div>
     <button class="ui button" on:click={add_service}>Add</button>

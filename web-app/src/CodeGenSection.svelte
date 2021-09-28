@@ -4,22 +4,13 @@
 
   $: code = "";
 
-  function fetchPythonCode() {
+  function fetchCode(language) {
     code = "";
     fetch(
-      "http://localhost:5000/api/services/" + $service + "/generate_code/python"
-    )
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        code = data;
-      });
-  }
-
-  function fetchJavaCode() {
-    code = "";
-    fetch(
-      "http://localhost:5000/api/services/" + $service + "/generate_code/java"
+      "/api/services/" +
+        $service +
+        "/generate_code/" +
+        language
     )
       .then((response) => response.text())
       .then((data) => {
@@ -30,8 +21,11 @@
 </script>
 
 <div in:fade>
-  <button class="ui mini button" on:click={fetchPythonCode}>Python</button>
-  <button class="ui mini button" on:click={fetchJavaCode}>Java</button>
+  <button class="ui mini button" on:click={() => fetchCode("python")}
+    >Python</button
+  >
+  <button class="ui mini button" on:click={() => fetchCode("java")}>Java</button
+  >
 
   {#if code}
     <div in:fade>

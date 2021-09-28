@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, jsonify, request
 from flask.helpers import make_response, send_from_directory
 from flask_cors import CORS
@@ -8,17 +6,60 @@ from redis import StrictRedis
 from src.codegen import CodeGen
 from src.kvstore import KVStore
 
-redis_host = os.environ.get("REDIS_HOST", "localhost")
-redis_port = os.environ.get("REDIS_PORT", 6379)
-redis_db = os.environ.get("REDIS_DB", 0)
-redis = StrictRedis(host=redis_host, port=redis_port, db=redis_db)
-
-kv_store = KVStore(redis)
-codegen = CodeGen(kv_store)
+redis_host = None
+redis_port = None
+redis_password = None
+redis_db = None
+redis = None
+kv_store = None
+codegen = None
 
 app = Flask(__name__, static_folder="../web-app/public", static_url_path="/")
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+
+@app.route("/api/init", methods=["GET"])
+def api_init():
+    global redis, redis_db, redis_host, redis_port
+    if redis is None:
+        return jsonify({"need_connect": True})
+    return jsonify(
+        {
+            "need_connect": False,
+            "host": redis_host,
+            "port": redis_port,
+            "db": redis_db,
+        }
+    )
+
+
+@app.route("/api/redis/connect", methods=["POST"])
+def api_connect_redis():
+    global redis, kv_store, codegen, redis_host, redis_port, redis_db
+    data = request.get_json()
+    redis = StrictRedis(
+        host=data.get("host"),
+        port=data.get("port"),
+        db=data.get("db"),
+        password=data.get("password"),
+        socket_connect_timeout=5,
+    )
+    try:
+        redis.ping()
+        redis_host = data.get("host")
+        redis_port = data.get("port")
+        redis_db = data.get("db")
+        kv_store = KVStore(redis)
+        codegen = CodeGen(kv_store)
+        return jsonify({"status": "success"})
+    except Exception as e:
+        return jsonify(
+            {
+                "status": "error",
+                "message": str(e),
+            }
+        )
 
 
 @app.route("/api/services", methods=["GET"])
@@ -66,8 +107,8 @@ def api_get_service(service_name):
 def api_add_service_kv(service_name):
     data = request.get_json()
     key = data.get("key")
-    val = data.get("val")
-    kv_store.add_service_kv(service_name, key, val)
+    value = data.get("value")
+    kv_store.add_service_kv(service_name, key, value)
     response = {"status": "success"}
     return jsonify(response)
 
