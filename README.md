@@ -7,7 +7,7 @@
     </a>
 </p>
 <h4 align="center">
-    Config or Settings key-val store in Redis with GUI.
+    Redis based Config or Settings key-value store with GUI.
     <br>
     Manages your frequently changed env vars without any deployment.
     <br>
