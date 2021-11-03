@@ -73,3 +73,5 @@ Then go to http://localhost:5000
 _Note that the svelte port won't load api because it's different than 5000, so go to 5000 as the flask is there, serving svelte_
 
 ### Please give a star ⭐ if you like it
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/ananto30)
