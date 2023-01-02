@@ -5,9 +5,6 @@
     <a href="https://hub.docker.com/repository/docker/ananto30/kv-store" target="_blank">
         <img src="https://img.shields.io/docker/image-size/ananto30/kv-store?logo=docker" />
     </a>
-    <a href="https://requires.io/github/Ananto30/kv-store/requirements/?branch=main">
-        <img src="https://requires.io/github/Ananto30/kv-store/requirements.svg?branch=main" alt="Requirements Status" />
-    </a>
     <a href="https://depfu.com/github/Ananto30/kv-store?project_id=34519">
         <img src="https://badges.depfu.com/badges/df8dd00b854618d902f3f804a1282360/count.svg" alt="Depfu" />
     </a>
