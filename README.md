@@ -10,9 +10,9 @@
     </a>
 </p>
 <h4 align="center">
-    Redis based Config or Settings key-value store with GUI.
+    Web app to manage Redis key-values (config/settings related).
     <br>
-    Manages your frequently changed env vars without any deployment.
+    Manages your frequently changed configs without any deployment.
     <br>
     Generates Python & Java code too!
 </h4>
