@@ -14,7 +14,7 @@ redis = None
 kv_store = None
 codegen = None
 
-app = Flask(__name__, static_folder="../web-app/public", static_url_path="/")
+app = Flask(__name__, static_folder="../web/build", static_url_path="/")
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 

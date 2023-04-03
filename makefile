@@ -10,7 +10,7 @@ dev:
 		export FLASK_APP=src.main; \
 		export FLASK_ENV=development; \
 		flask run & \
-		cd web-app; \
+		cd web; \
 		npm run dev; \
 		)
 	

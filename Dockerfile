@@ -1,14 +1,12 @@
 FROM node:19.3.0-alpine as build
 
 WORKDIR /
-COPY web-app/package.json web-app/package.json
-COPY web-app/package-lock.json web-app/package-lock.json
+COPY web/package.json web/package.json
+COPY web/package-lock.json web/package-lock.json
 
-WORKDIR /web-app
+WORKDIR /web
 RUN npm ci --silent
-COPY web-app/src src
-COPY web-app/rollup.config.js rollup.config.js
-COPY web-app/public public
+COPY web/ .
 RUN npm run build
 
 
@@ -20,7 +18,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 RUN rm requirements.txt
 
-COPY --from=build /web-app/public /web-app/public
+COPY --from=build /web/build /web/build
 
 COPY ./src /src
 COPY ./entrypoint.sh /entrypoint.sh
