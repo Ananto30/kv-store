@@ -4,7 +4,13 @@
 
 	export let section;
 
+	/**
+	 * @type {string}
+	 */
 	export let key;
+	/**
+	 * @type {string}
+	 */
 	export let value;
 
 	function addKeyValue() {

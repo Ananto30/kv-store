@@ -1,4 +1,3 @@
-import adapter from '@sveltejs/adapter-auto';
 import adapterStatic from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */

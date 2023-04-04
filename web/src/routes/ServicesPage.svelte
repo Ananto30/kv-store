@@ -3,8 +3,14 @@
 	import { page, service } from './store.js';
 
 	let fetching = false;
+	/**
+	 * @type {null}
+	 */
 	let error = null;
 
+	/**
+	 * @type {any[]}
+	 */
 	$: serviceList = [];
 	const fetchServices = () => {
 		fetching = true;
@@ -20,11 +26,17 @@
 		$page = 'addService';
 	}
 
+	/**
+	 * @param {string} serviceName
+	 */
 	function singleServicePage(serviceName) {
 		$page = 'singleService';
 		$service = serviceName;
 	}
 
+	/**
+	 * @param {string} serviceName
+	 */
 	function deleteService(serviceName) {
 		if (confirm(`Are you sure you want to delete this service: ${serviceName}?`)) {
 			fetch('/api/services/' + serviceName, {

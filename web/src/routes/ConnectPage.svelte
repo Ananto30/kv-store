@@ -2,6 +2,9 @@
 	import { fade } from 'svelte/transition';
 	import { page, host, port, db, needConnect } from './store.js';
 
+	/**
+	 * @type {?string}
+	 */
 	let error = null;
 	let password = '';
 

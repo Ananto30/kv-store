@@ -4,6 +4,9 @@
 
 	$: code = '';
 
+	/**
+	 * @param {string} language
+	 */
 	function fetchCode(language) {
 		code = '';
 		fetch('/api/services/' + $service + '/generate_code/' + language)

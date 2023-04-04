@@ -19,6 +19,9 @@
 			});
 	};
 
+	/**
+	 * @param {string} key
+	 */
 	function deleteKeyVal(key) {
 		if (confirm(`Are you sure you want to delete this key: ${key}?`)) {
 			fetch('/api/services/' + $service + '/kv/' + key, {
@@ -29,6 +32,10 @@
 		}
 	}
 
+	/**
+	 * @param {string} key
+	 * @param {any} value
+	 */
 	function updateKeyValSection(key, value) {
 		updateKey = key;
 		updateValue = value;
