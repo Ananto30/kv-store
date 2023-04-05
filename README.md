@@ -9,13 +9,13 @@
         <img src="https://badges.depfu.com/badges/82614c2f1a13921b01dd4d70ec00643e/overview.svg" alt="Depfu" />
     </a>
 </p>
-<h4 align="center">
+<p align="center">
     Web app to manage Redis key-values (config/settings related).
     <br>
     Manages your frequently changed configs without any deployment.
     <br>
     Generates Python & Java code too!
-</h4>
+</p>
 
 <br>
 <br>
@@ -84,6 +84,6 @@ Then go to http://localhost:5000
 
 _Note that the svelte port won't load api because it's different than 5000, so go to 5000 as the flask is there, serving svelte_
 
-### Please give a star ⭐ if you like it
+#### Please give a star ⭐ if you like it
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/ananto30)
