@@ -39,7 +39,7 @@ Standalone docker image of KV Store is available [here](https://hub.docker.com/r
 
 - Get the image and run -
 
-```
+```bash
 docker pull ananto30/kv-store
 docker run -d -p 8080:8080 ananto30/kv-store
 ```
@@ -48,14 +48,14 @@ docker run -d -p 8080:8080 ananto30/kv-store
 
 - Clone the repo -
 
-```
+```bash
 git clone https://github.com/Ananto30/kv-store.git
 cd kv-store
 ```
 
 - Build and run in docker -
 
-```
+```bash
 make docker-build
 make docker-run
 ```
@@ -66,11 +66,20 @@ make docker-run
 
 <i>Make sure you have Python 3.9 installed.</i>
 
-```
-make init
-make dev
-```
+- If you want to dev only
+    ```bash
+    make init
+    make dev-server
+    # in another window/shell
+    make dev-web
+    ```
 
+- If you want to check the app
+    ```bash
+    make init
+    make build-web
+    make dev-server
+    ```
 Then go to http://localhost:5000
 
 _Note that the svelte port won't load api because it's different than 5000, so go to 5000 as the flask is there, serving svelte_

@@ -5,14 +5,21 @@ init:
 		pip install -r requirements.txt; \
 		)
 
-dev:
+dev-server:
 		source venv/bin/activate && ( \
 		export FLASK_APP=src.main; \
-		export FLASK_ENV=development; \
-		flask run & \
-		cd web; \
-		npm run dev; \
+		flask --debug run; \
 		)
+
+dev-web:
+		cd web; \
+		npm install; \
+		npm run dev
+
+build-web:
+		cd web; \
+		npm install; \
+		npm run build
 	
 docker-build:
 		docker build -t ananto30/kv-store .
