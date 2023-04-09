@@ -26,3 +26,4 @@ docker-build:
 
 docker-run:
 		docker run -d -p 8080:8080 ananto30/kv-store
+	
