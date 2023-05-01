@@ -15,7 +15,7 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"@sveltejs/kit": "^1.15.2",
-		"eslint": "^8.28.0",
+		"eslint": "^8.39.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"prettier": "^2.8.0",
