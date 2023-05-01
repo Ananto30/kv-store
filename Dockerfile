@@ -10,7 +10,7 @@ COPY web/ .
 RUN npm run build
 
 
-FROM python:3.11.1-alpine
+FROM python:3.11.3-alpine
 
 WORKDIR /
 
