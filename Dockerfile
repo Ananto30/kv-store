@@ -1,4 +1,4 @@
-FROM node:19.8.1-alpine as build
+FROM node:20.2.0-alpine as build
 
 WORKDIR /
 COPY web/package.json web/package.json
