@@ -9,13 +9,25 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
-      
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/web" # Location of package manifests
     schedule:
       interval: "monthly"
-      
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+
   - package-ecosystem: "docker" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
