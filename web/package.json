@@ -1,6 +1,6 @@
 {
-	"name": "myapp2",
-	"version": "0.0.1",
+	"name": "kvstore",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -17,7 +17,7 @@
 		"@sveltejs/kit": "^1.27.1",
 		"eslint": "^8.52.0",
 		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-plugin-svelte": "^1.1.2",
 		"prettier": "^3.0.3",
 		"prettier-plugin-svelte": "^3.0.3",
 		"svelte": "^4.2.2",
