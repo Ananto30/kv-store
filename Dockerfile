@@ -1,4 +1,4 @@
-FROM node:20.8.0-alpine as build
+FROM node:21.5.0-alpine as build
 
 WORKDIR /
 COPY web/package.json web/package.json
@@ -10,7 +10,7 @@ COPY web/ .
 RUN npm run build
 
 
-FROM python:3.11.5-alpine
+FROM python:3.12.1-alpine
 
 WORKDIR /
 
